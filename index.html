@@ -5,19 +5,46 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Be My Valentine?</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .heart-frame {
+      width: 150px;
+      height: 150px;
+      background-color: pink;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      clip-path: path("M 75 20 C 75 -20 150 -10 150 50 C 150 100 75 150 75 150 C 75 150 0 100 0 50 C 0 -10 75 -20 75 20 Z");
+      overflow: hidden;
+    }
+    .heart-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  </style>
 </head>
-<body class="flex items-center justify-center min-h-screen bg-pink-200 p-4">
-  <div class="bg-white p-6 sm:p-8 rounded-2xl shadow-lg text-center max-w-md">
-    <h1 class="text-3xl sm:text-4xl font-bold text-red-500">Will You Be My Valentine? ❤️</h1>
-    <div class="mt-6 flex justify-center gap-4 relative">
-      <button onclick="location.href='yes.html'" 
-        class="px-6 py-3 bg-green-500 text-white rounded-lg text-lg font-semibold hover:bg-green-600 transition">
-        Yes 😍
-      </button>
-      <button id="no-btn" class="px-6 py-3 bg-gray-300 text-gray-700 rounded-lg text-lg font-semibold">
-        No 😭
-      </button>
+<body class="flex flex-col items-center justify-center min-h-screen bg-pink-200 p-4 text-center">
+  <h1 class="text-3xl sm:text-4xl font-bold text-red-500">Will You Be My Valentine? ❤️</h1>
+
+  <!-- Heart-Shaped Frames Section -->
+  <div class="mt-6 flex flex-wrap justify-center gap-6">
+    <div class="heart-frame">
+      <img src="your-photo1.jpg" alt="Her Photo 1">
     </div>
+    <div class="heart-frame">
+      <img src="your-photo2.jpg" alt="Her Photo 2">
+    </div>
+  </div>
+
+  <div class="mt-6 flex justify-center gap-4 relative">
+    <button onclick="location.href='yes.html'" 
+      class="px-6 py-3 bg-green-500 text-white rounded-lg text-lg font-semibold hover:bg-green-600 transition">
+      Yes 😍
+    </button>
+    <button id="no-btn" class="px-6 py-3 bg-gray-300 text-gray-700 rounded-lg text-lg font-semibold">
+      No 😭
+    </button>
   </div>
 
   <script>
