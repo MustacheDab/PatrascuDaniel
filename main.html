@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Be My Valentine?</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="flex items-center justify-center min-h-screen bg-pink-200">
+  <div class="bg-white p-8 rounded-2xl shadow-lg text-center">
+    <h1 class="text-4xl font-bold text-red-500">Will You Be My Valentine? ❤️</h1>
+    <div class="mt-6 flex justify-center gap-4 relative">
+      <button onclick="location.href='yes.html'" 
+        class="px-6 py-3 bg-green-500 text-white rounded-lg text-lg font-semibold hover:bg-green-600 transition">
+        Yes 😍
+      </button>
+      <button id="no-btn" class="px-6 py-3 bg-gray-300 text-gray-700 rounded-lg text-lg font-semibold">
+        No 😭
+      </button>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('no-btn').addEventListener('mouseover', function() {
+      this.style.position = 'absolute';
+      this.style.top = Math.random() * window.innerHeight + 'px';
+      this.style.left = Math.random() * window.innerWidth + 'px';
+    });
+  </script>
+</body>
+</html>
