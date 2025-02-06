@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Valentine's Day</title>
   <script src="https://cdn.tailwindcss.com"></script>
-   <style>
+  <style>
     body {
       overflow: hidden;
     }
@@ -23,6 +23,12 @@
       object-fit: cover;
       object-position: center top;
       clip-path: path('M 100 30 C 120 -10 200 -10 200 60 C 200 100 160 160 100 200 C 40 160 0 100 0 60 C 0 -10 80 -10 100 30 Z');
+    }
+    .tilted-left {
+      transform: rotate(-15deg);
+    }
+    .tilted-right {
+      transform: rotate(15deg);
     }
     .yes-btn {
       transition: transform 0.3s ease;
