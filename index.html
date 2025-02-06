@@ -6,6 +6,10 @@
   <title>Be My Valentine?</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
+    body {
+      overflow: hidden; /* Prevents scrollbars */
+    }
+    
     .heart-frame {
       width: 120px;
       height: 120px;
@@ -16,59 +20,35 @@
       justify-content: center;
       clip-path: path("M 75 20 C 75 -20 150 -10 150 50 C 150 100 75 150 75 150 C 75 150 0 100 0 50 C 0 -10 75 -20 75 20 Z");
       overflow: hidden;
-      transform: rotate(calc(20deg * (Math.random() * 2 - 1))); /* Random tilt */
+      transform: rotate(calc(15deg * (Math.random() * 2 - 1))); /* Random tilt */
     }
+
     .heart-frame img {
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
-    .photo-icons {
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      margin: 0 10px;
-      cursor: pointer;
-      position: absolute;
-      transition: transform 0.3s ease-in-out;
-      transform: rotate(calc(15deg * (Math.random() * 2 - 1))); /* Random tilt */
-    }
-    .photo-icons:hover {
-      transform: scale(1.1) rotate(0deg);
-    }
+
     .yes-btn {
       transition: transform 0.3s ease;
     }
-    .yes-btn.enlarged {
-      transform: scale(1.2);
-    }
   </style>
 </head>
-<body class="relative flex flex-col items-center justify-center min-h-screen bg-pink-200 p-4 text-center">
+<body class="flex flex-col items-center justify-center min-h-screen bg-pink-200 p-4 text-center relative">
   <h1 class="text-3xl sm:text-4xl font-bold text-red-500">Will You Be My Valentine? ❤️</h1>
 
-  <!-- Heart-Shaped Frames Section with 4 scattered clickable photo icons -->
-  <div class="mt-6 absolute top-0 left-0 right-0 bottom-0">
-    <div class="heart-frame" style="top: 15%; left: 30%;">
-      <img src="your-photo1.jpg" alt="Her Photo 1">
-    </div>
-    <div class="heart-frame" style="top: 50%; left: 70%;">
-      <img src="your-photo2.jpg" alt="Her Photo 2">
-    </div>
-    <div class="heart-frame" style="top: 80%; left: 10%;">
-      <img src="your-photo3.jpg" alt="Her Photo 3">
-    </div>
-    <div class="heart-frame" style="top: 35%; left: 50%;">
-      <img src="your-photo4.jpg" alt="Her Photo 4">
-    </div>
+  <!-- Scattered Heart Photos -->
+  <div class="heart-frame" style="top: 15%; left: 10%;">
+    <img src="your-photo1.jpg" alt="Her Photo 1">
   </div>
-
-  <!-- Photo Icons Section (clickable, scattered around the page) -->
-  <div class="absolute top-0 left-0 right-0 bottom-0">
-    <img src="your-photo1.jpg" alt="Her Photo 1" class="photo-icons" style="top: 20%; left: 20%" onclick="openHeart('your-photo1.jpg')">
-    <img src="your-photo2.jpg" alt="Her Photo 2" class="photo-icons" style="top: 40%; left: 60%" onclick="openHeart('your-photo2.jpg')">
-    <img src="your-photo3.jpg" alt="Her Photo 3" class="photo-icons" style="top: 60%; left: 30%" onclick="openHeart('your-photo3.jpg')">
-    <img src="your-photo4.jpg" alt="Her Photo 4" class="photo-icons" style="top: 80%; left: 80%" onclick="openHeart('your-photo4.jpg')">
+  <div class="heart-frame" style="top: 50%; left: 70%;">
+    <img src="your-photo2.jpg" alt="Her Photo 2">
+  </div>
+  <div class="heart-frame" style="top: 80%; left: 20%;">
+    <img src="your-photo3.jpg" alt="Her Photo 3">
+  </div>
+  <div class="heart-frame" style="top: 30%; left: 60%;">
+    <img src="your-photo4.jpg" alt="Her Photo 4">
   </div>
 
   <!-- Buttons -->
@@ -83,29 +63,15 @@
   </div>
 
   <script>
-    document.getElementById('no-btn').addEventListener('mouseover', function() {
-      this.style.position = 'absolute';
-      this.style.top = Math.random() * window.innerHeight + 'px';
-      this.style.left = Math.random() * window.innerWidth + 'px';
-      
-      // Grow the "Yes" button
-      document.getElementById('yes-btn').classList.add('enlarged');
-    });
+    let yesButton = document.getElementById('yes-btn');
+    let noButton = document.getElementById('no-btn');
+    let yesSize = 1; // Initial scale
 
-    document.getElementById('no-btn').addEventListener('mouseout', function() {
-      // Shrink the "Yes" button back
-      document.getElementById('yes-btn').classList.remove('enlarged');
-    });
-
-    function openHeart(photo) {
-      alert('You clicked on the heart! This would open your heart-shaped photo: ' + photo);
-      // For example, open a new window or display a full-size image here
-    }
-  </script>
-</body>
-</html>
-
+    noButton.addEventListener('click', function() {
+      yesSize += 0.2; // Increase size on each "No" press
+      yesButton.style.transform = `scale(${yesSize})`;
     });
   </script>
 </body>
 </html>
+
